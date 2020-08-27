@@ -22,6 +22,7 @@ jobs:
       - name: create a Pull Request
         uses: peter-evans/create-pull-request@v3.1.2
         with:
+          token: ${{ secrets.PAT }}
           base: master
         
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
