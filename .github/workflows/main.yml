@@ -18,6 +18,6 @@ jobs:
         --header 'content-type: application/json' \
         --data '{
           "title": "Automated Pull Request for commit: ${{ github.sha }}",
-          "head" : "${{ GITHUB_REF }}",
+          "head" : "${{ github.ref }}",
           "base" : "master"
           }'
