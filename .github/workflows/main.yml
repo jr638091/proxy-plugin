@@ -5,19 +5,19 @@ on:
     branches-ignore:
       - master
 
+
 jobs:
-  build:
-    # Job name is Greeting
-    name: Greeting
-    # This job runs on Linux
+  create_pull_request:
     runs-on: ubuntu-latest
     steps:
-      # This step uses GitHub's hello-world-javascript-action: https://github.com/actions/hello-world-javascript-action
-      - name: Hello world
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: 'Mona the Octocat'
-        id: hello
-      # This step prints an output (time) from the previous step's action.
-      - name: Echo the greeting's time
-        run: echo ref is $GITHUB_REF ${{ secrets.GITHUB_TOKEN }}.
+    - name: Create pull request on commit using REST API
+      run: |
+        curl --request POST \
+        --url ${{ GITHUB_API_URL }}/repos/${{ GITHUB_REPOSITORY }}/pulls \
+        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'content-type: application/json' \
+        --data '{
+          "title": "Automated Pull Request for commit: ${{ github.sha }}",
+          "head" : "${{ GITHUB_REF }}",
+          "base" : "master"
+          }'
