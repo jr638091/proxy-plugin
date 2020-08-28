@@ -16,7 +16,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.2
-      - name: test
-        run: echo ${{ github.actor }}
+      - name: make a dir
+        run: mkdir -p data/${{ github.event.inputs.dataSetName }}
+      - name: create data
+        run: touch data/${{ github.event.inputs.dataSetName }}/dataset.${{ github.event.inputs.dataSetFormat }}
+      - name: add dataset to git
+        run: |
+          git config --local user.name ${{ github.actor }}
+          git add .
+          git commit -m 'Added dataset ${{ github.event.github.event.inputs.dataSetName }}'
+        shell: bash
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
 
 
