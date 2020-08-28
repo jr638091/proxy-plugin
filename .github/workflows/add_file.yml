@@ -1,7 +1,15 @@
 name: Add dataset
 on:
   workflow_dispatch:
-  
+    inputs:
+      numOctocats:
+        description: 'Number of Octocats'
+        required: false
+        default: '1'
+      octocatEyeColor:
+        description: 'Eye color of the Octocats'
+        required: true
+    
 jobs:
   add_file:
     name: Add dataset to Data Bib
