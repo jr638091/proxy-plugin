@@ -2,3 +2,11 @@ name: Add dataset
 on:
   workflow_dispatch:
   
+jobs:
+  add_file:
+    name: Add dataset to Data Bib
+    runs-on: ubutu-latest
+    steps:
+      - uses: actions/checkout@v2.3.2
+      - name: create_file
+        run: "touch file2"
