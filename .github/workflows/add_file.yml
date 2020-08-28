@@ -16,10 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.2
-      - name: create_file
-        run: |
-          mkdir -p /data/${{ github.event.inputs.dataSetName }}
-          touch /data/${{ github.event.inputs.dataSetName }}/dataset.${{ github.event.inputs.dataSetFormat }}
-          git add /data/${{ github.event.inputs.dataSetName }}/dataset.${{ github.event.inputs.dataSetFormat }}
-          git commit -m 'Added dataset ${{ github.event.inputs.dataSetName }}'
-          git push
+      - id: foo
+        uses: jr638091/proxy-pluginv1
+        with:
+          dataSetName: github.event.inputs.dataSetName
+          dataSetFormat: ithub.event.inputs.dataSetFormat
