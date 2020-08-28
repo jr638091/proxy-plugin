@@ -16,7 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.2
-      - id: foo
-        run: |
-          ls
-        shell: bash
+      - name: test
+        run: echo $github.actor
+      - name: make a dir
+        run: mkdir -p /data/${{ inputs.dataSetName }}
+      - name: create data
+        run: touch /data/${{ inputs.dataSetName }}/dataset.${{ inputs.dataSetFormat }}
+
+
