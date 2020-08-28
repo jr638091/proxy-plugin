@@ -1,5 +1,5 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Add dataset'
+description: 'Add dataset to this repo'
 inputs:
       dataSetName:
         description: 'Nombre identificativo del dataset'
