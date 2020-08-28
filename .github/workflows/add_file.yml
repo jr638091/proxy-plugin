@@ -9,4 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
       - name: create_file
-        run: "touch file2"
+        run: |
+          touch file2.txt
+          git add file2.txt
+          git commit -m 'Added file 2'
+          git push
