@@ -34,6 +34,6 @@ jobs:
       - name: create branch
         uses: Hatzelencio/create-ref@v0.0.3
         with:
-          branch: /refs/heads/${{ github.event.inputs.dataSetName }}_latest
+          refs: /refs/heads/${{ github.event.inputs.dataSetName }}_latest
 
 
