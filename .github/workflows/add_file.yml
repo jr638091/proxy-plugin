@@ -17,7 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.2
       - id: foo
-        uses: jr638091/proxy-plugin@v1
-        with:
-          dataSetName: github.event.inputs.dataSetName
-          dataSetFormat: ithub.event.inputs.dataSetFormat
+        run: |
+          ls
+        shell: bash
