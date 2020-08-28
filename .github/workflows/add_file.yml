@@ -32,8 +32,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
       - name: create branch
-        uses: Hatzelencio/create-ref@v0.0.3
+        uses: ad-m/github-push-action@master
         with:
-          refs: /refs/heads/${{ github.event.inputs.dataSetName }}_latest
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: '${{ github.event.inputs.dataSetName }}_latest'
+          force: true
 
 
