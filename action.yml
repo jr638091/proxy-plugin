@@ -1,0 +1,21 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+      dataSetName:
+        description: 'Nombre identificativo del dataset'
+        required: true
+      dataSetFormat:
+        description: 'Formato del dataset(json/csv)'
+        required: true
+        default: 'json'
+
+runs:
+  using: "composite"
+  steps: 
+    - run: |
+          mkdir -p /data/${{ inputs.dataSetName }}
+          touch /data/${{ inputs.dataSetName }}/dataset.${{ inputs.dataSetFormat }}
+          git add /data/${{ inputs.dataSetName }}/dataset.${{ inputs.dataSetFormat }}
+          git commit -m 'Added dataset ${{ github.event.inputs.dataSetName }}'
+          git push
+      shell: bash
