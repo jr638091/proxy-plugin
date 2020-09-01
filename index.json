@@ -1,1 +1,8 @@
-{"carr2": {"name": "", "description": "", "dataset_type": "json", "publishers": [], "url_dir": "carr2", "schema": false, "visualizer": [], "editable": false}}
+{
+  "carr2": {
+    "name": "", "description": "", "dataset_type": "json", "publishers": [], "url_dir": "carr2", "schema": false, "visualizer": [], "editable": false
+  },
+  "carro1":{
+    "name": "Carros de la habana", "description": "", "dataset_type": "json", "publishers": [], "url_dir": "carro", "schema": false, "visualizer": [], "editable": false
+  }
+}
