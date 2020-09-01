@@ -27,7 +27,7 @@ def create_branch(branch : str, sha: str, token: str, owner: str,repo: str):
         "sha": f'\"{sha}\"'
     }
     req = requests.post(f'https://api.github.com/repos/{owner}/{repo}/git/refs',
-     data=body,
+     json=body,
      headers={
          "Authorization": f'token {token}'
     })
