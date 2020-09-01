@@ -23,8 +23,8 @@ def get_diff(branches : [str]) -> [str]:
 
 def create_branch(branch : str, sha: str, token: str, owner: str,repo: str):
     body = {
-        "ref": f'\"refs/heads/{branch}\"',
-        "sha": f'\"{sha}\"'
+        "ref": f'refs/heads/{branch}',
+        "sha": f'{sha}'
     }
     req = requests.post(f'https://api.github.com/repos/{owner}/{repo}/git/refs',
      json=body,
