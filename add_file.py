@@ -26,12 +26,12 @@ def create_branch(branch : str, sha: str, token: str, owner: str,repo: str):
         "ref": f'refs/heads/{branch}',
         "sha": sha
     }
-    requests.post(f'https://api.github.com/repos/{owner}/{repo}/git/refs',
+    req = requests.post(f'https://api.github.com/repos/{owner}/{repo}/git/refs',
      data=body,
      headers={
          "Authorization": f'token {token}'
     })
-
+    print(req.json())
 
 
 if __name__ == "__main__":
@@ -45,5 +45,6 @@ if __name__ == "__main__":
     branches_to_push = get_diff(branches)
     sha = sys.argv[1]
     token = sys.argv[2]
+    print(branches_to_push)
     for i in branches_to_push:
         create_branch(i,sha,token,owner,repo)
