@@ -14,6 +14,6 @@ jobs:
         with:
           python-version: 3.7
       - name: add to index
-        run: echo ${{ github.sha }} ${{ github.token }}
+        run: python add_file.py ${{ github.sha }} ${{ github.token }}
 
 
