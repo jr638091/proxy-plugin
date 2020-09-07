@@ -1,10 +1,8 @@
 name: Generate Pull Request
 # This workflow is triggered on pushes to the repository.
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: "nombre"
+  repository_dispatch:
+    types: [edited]
 
 
 jobs:
